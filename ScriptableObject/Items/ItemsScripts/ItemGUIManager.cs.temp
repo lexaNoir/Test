@@ -1,0 +1,122 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEditor;
+
+public class ItemGUIManager : MonoBehaviour
+{
+    private string _fileName;
+    private string _nameObject;
+    private string _description;
+    private Sprite _itemSprite;
+    private Sprite _dragSprite;
+    private ItemType _itemType;
+    private float _itemCoast;
+    private int _itemCell;
+    
+    
+
+    public void GUIItenCreate(ItemDatabaseObject database, ItemObject _itemObject)
+    {
+        
+        Rect r = GUILayoutUtility.GetRect(EditorSettings.WindowSize.x, 15);
+        r.height += 10;
+        GUI.Box(r, "Новый предмет");
+        GUILayout.Space(10);
+        database = EditorGUILayout.ObjectField(database, typeof(ItemDatabaseObject), false,GUILayout.Width(200), GUILayout.Height(10)) as ItemDatabaseObject;
+        GUILayout.Space(10);
+        _fileName = EditorGUILayout.TextField("Имя файла", _fileName);
+        GUILayout.Label("Тип предмета");
+        _itemType = (ItemType) EditorGUILayout.EnumPopup(_itemObject.type);
+        GUILayout.Space(10);
+        _nameObject = EditorGUILayout.TextField("Название: ", _nameObject);
+        GUILayout.Space(10);
+        GUILayout.Label("Иконка в инвентаре");
+        _itemSprite = EditorGUILayout.ObjectField(_itemObject.uiDisplay, typeof(Sprite), false, GUILayout.Width(60), GUILayout.Height(60)) as Sprite;
+        GUILayout.Label("Иконка при перетаскивании предмета");
+        _dragSprite = EditorGUILayout.ObjectField(_itemObject.dragIcon, typeof(Sprite), false, GUILayout.Width(60), GUILayout.Height(60)) as Sprite;
+        GUILayout.Space(10);
+        GUILayout.Label("Описание");
+         _description = EditorGUILayout.TextArea(_description, GUILayout.Height(100));
+         GUILayout.Space(10);
+         GUILayout.Label("Стоимость");
+         _itemCoast = EditorGUILayout.FloatField(_itemCoast);
+         GUILayout.Space(10);
+         GUILayout.Label("Занимаемые ячейки");
+         _itemCell = EditorGUILayout.IntField(_itemCell);
+         GUILayout.Space(10);
+         
+         //Тут бы разобраться!!!
+         switch (_itemObject.type)
+         {
+             case ItemType.Potion:
+             {
+                 Debug.Log("Potion");
+                 GUILayout.Space(10);
+                 break;
+             }
+             case ItemType.Scroll:
+             {
+                 GUILayout.Space(10);
+                 Debug.Log("Scroll");
+                 break;
+             }
+             case ItemType.Weapon:
+             {
+                 GUILayout.Space(10);
+                 break;
+             }
+
+             case ItemType.Armor:
+             {
+                 GUILayout.Space(10);
+                 break;
+             }
+
+             case ItemType.Money:
+             {
+                 GUILayout.Space(10);
+                 GUILayout.Label("НЕСКОЛЬКО ПРЕДМЕТОВ В ОДНОЙ ЯЧЕЙКЕ");
+                 GUILayout.Space(10);
+                // _itemObject.stackable = true;
+                 break;
+             }
+         }
+         
+         GUILayout.Space(5);
+        if (GUILayout.Button("Create"))
+        {
+            if (_fileName != null && _fileName != "")
+            {
+                _itemObject = new ItemObject(); 
+                _itemObject.ID = Guid.NewGuid();
+                string path = "Assets/Asset/Inventory/Items/ItemsAsset/" + _fileName + ".asset";
+                _itemObject.Name = _nameObject;
+                _itemObject.description = _description;
+                _itemObject.cells = _itemCell;
+                _itemObject.coast = _itemCoast;
+                _itemObject.uiDisplay = _itemSprite;
+                _itemObject.dragIcon = _dragSprite;
+                AssetDatabase.CreateAsset(_itemObject, path);
+                database.BaseItem.Add(_itemObject);
+                AssetDatabase.SaveAssets();
+                
+            }
+            else
+            {
+                EditorGUILayout.HelpBox("А не заполнить ли нам поля???.", MessageType.Info);
+            }
+            
+        }
+        
+    }
+
+    public void GUIItemEdit()
+    {
+        
+        
+        
+    }
+
+}

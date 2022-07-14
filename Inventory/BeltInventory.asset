@@ -1,0 +1,101 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6d5db2a92c58ec449e5dc2779e80386, type: 3}
+  m_Name: BeltInventory
+  m_EditorClassIdentifier: 
+  Slot:
+  - ID: 0
+    item:
+      Name: 
+      UniqId: 
+      UIDisplay: {fileID: 0}
+      DragDisplayItem: {fileID: 0}
+      Cell: 0
+      Coast: 0
+      Description: 
+      Type: 
+    ItemCellId: -1
+    amount: 0
+    anhoredPosition: {x: 0, y: 0}
+    transform: {fileID: 0}
+  - ID: 1
+    item:
+      Name: "\u0417\u043E\u043B\u043E\u0442\u043E"
+      UniqId: 05e55998-33fb-439f-8e01-4bbfc191b691
+      UIDisplay: {fileID: 5017322220851110838, guid: 957a1455a7e68c14aa15db703f4986a5, type: 3}
+      DragDisplayItem: {fileID: 5017322220851110838, guid: 957a1455a7e68c14aa15db703f4986a5, type: 3}
+      Cell: 1
+      Coast: 3
+      Description: 
+      Type: Money
+    ItemCellId: 1
+    amount: 1
+    anhoredPosition: {x: 66.3, y: 0}
+    transform: {fileID: 0}
+  - ID: 2
+    item:
+      Name: 
+      UniqId: 
+      UIDisplay: {fileID: 0}
+      DragDisplayItem: {fileID: 0}
+      Cell: 0
+      Coast: 0
+      Description: 
+      Type: 
+    ItemCellId: -1
+    amount: 0
+    anhoredPosition: {x: 132.6, y: 0}
+    transform: {fileID: 0}
+  - ID: 3
+    item:
+      Name: "\u0417\u043E\u043B\u043E\u0442\u043E"
+      UniqId: 63608ff5-33f7-4ebc-b42e-b6d9173e1d97
+      UIDisplay: {fileID: 5017322220851110838, guid: 957a1455a7e68c14aa15db703f4986a5, type: 3}
+      DragDisplayItem: {fileID: 5017322220851110838, guid: 957a1455a7e68c14aa15db703f4986a5, type: 3}
+      Cell: 1
+      Coast: 3
+      Description: 
+      Type: Money
+    ItemCellId: 3
+    amount: 1
+    anhoredPosition: {x: 198.90001, y: 0}
+    transform: {fileID: 0}
+  - ID: 4
+    item:
+      Name: 
+      UniqId: 
+      UIDisplay: {fileID: 0}
+      DragDisplayItem: {fileID: 0}
+      Cell: 0
+      Coast: 0
+      Description: 
+      Type: 
+    ItemCellId: -1
+    amount: 0
+    anhoredPosition: {x: 265.2, y: 0}
+    transform: {fileID: 0}
+  - ID: 5
+    item:
+      Name: 
+      UniqId: 
+      UIDisplay: {fileID: 0}
+      DragDisplayItem: {fileID: 0}
+      Cell: 0
+      Coast: 0
+      Description: 
+      Type: 
+    ItemCellId: -1
+    amount: 0
+    anhoredPosition: {x: 331.5, y: 0}
+    transform: {fileID: 0}
+  maxCollection: 1
+  itemTypeAdd: 
